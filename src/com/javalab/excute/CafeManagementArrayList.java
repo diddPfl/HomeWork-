@@ -41,6 +41,9 @@ public class CafeManagementArrayList {
         showProductswithCategoryName(products,categories);
         showProductswithCategoryName1(products,categories);
 
+        // 전체 주문 내역 출력
+        showOrderwithpwiths(orders,products,staffs);
+
     } // end of main
 
     // 카테고리 정보 출력 - 상품번호, 상품명, 카테고리 id, 카테고리명, 가격
@@ -110,6 +113,35 @@ public class CafeManagementArrayList {
             }
             System.out.println(p.getProNumber() + "\t" + p.getProName() + "\t" +p.getCaNumber()+ "\t" +
                     categoryName + "\t" + p.getPrice());
+        }
+    }
+    public static void showOrderwithpwiths(ArrayList<Order> orders, ArrayList<Product> products, ArrayList<Staff> staffs) {
+        System.out.println();
+        System.out.println("전체 주문 내역");
+        System.out.println("주문번호\t주문일자\t상품명\t수량\t담당직원");
+        System.out.println("------------------------------------");
+        for (Order o : orders) {
+            int proNumber = o.getProNumber();
+            String pName = "";
+            if (proNumber != 0) {
+                for (Product p : products) {
+                    if (p.getProNumber() == proNumber) {
+                        pName = p.getProName();
+                        break;
+                    }
+                }
+                int sId = o.getStaffId();
+                String sName = "";
+                for (Staff s : staffs) {
+                    if (s.getStaffId() == sId) {
+                        sName = s.getStaffName();
+                        break;
+                    }
+
+                }
+                System.out.println(o.getOdNumber() + "\t" + o.getDate() + "\t" + pName  + "\t"
+                        + o.getSales() + "\t" + sName);
+            }
         }
     }
 }
