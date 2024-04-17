@@ -108,7 +108,8 @@ public class CafeManagementArrayList {
                     }
                 }
             }
-            System.out.println(p.getProNumber() + "\t" + p.getProName() + "\t" +p.getCaNumber()+ "\t" + categoryName + "\t" + p.getPrice());
+            System.out.println(p.getProNumber() + "\t" + p.getProName() + "\t" +p.getCaNumber()+ "\t" +
+                    categoryName + "\t" + p.getPrice());
         }
     }
 }
